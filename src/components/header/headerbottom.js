@@ -4,10 +4,11 @@ import CloseIcon from '@mui/icons-material/Close';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SidenavContent from './sidenavcontent';
 import { motion } from 'framer-motion';
-
+import { useSelector } from 'react-redux'; // Import useSelector from react-redux
 
 const HeaderBottom = () => {
     const ref = useRef();
+    const userInfo = useSelector((state) => state.amazon.userInfo); // Get userInfo from Redux state
 
     const [sidebar, setSidebar] = useState(false);
 
@@ -35,10 +36,17 @@ const HeaderBottom = () => {
             {sidebar && (
                 <div className='w-full h-screen text-black fixed top-0 left-0 bg-amazon_blue bg-opacity-50'>
                     <div className='w-full h-full relative'>
-                        <motion.div ref={ref} initial={{ x: -500, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }} className='w-[80%] md:w-[350px] h-full bg-[white] border border-black'>
+                        <motion.div ref={ref} initial={{ x: -500, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.5 }}
+                            className='w-[80%] md:w-[350px] h-full bg-[white] border border-black'>
                             <div className='w-full bg-amazon_light text-white py-2 px-6 flex items-center gap-4'>
                                 <AccountCircleIcon />
-                                <h3 className='font-titleFont text-lg tracking-wide'>Hello, Sign In</h3>
+                                {
+                                    userInfo ? (<h3 className='font-titleFont font-bold text-lg tracking-wide'>
+                                        {userInfo.userName}
+                                    </h3>) : (<h3 className='font-titleFont font-bold text-lg tracking-wide'>
+                                        Hello, Sign In
+                                    </h3>)
+                                }
                             </div>
                             <SidenavContent
                                 title='Digital content and devices'

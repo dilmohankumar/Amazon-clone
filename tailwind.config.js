@@ -31,8 +31,8 @@ module.exports = {
         footerbottom:`#131A22`,
       },
       boxShadow:{
-        testshadow:`0px 0px 32px 1px rgba(199,199,199,1)`,
-        amazoninput:`0px 0px 3px 2px rgb(228 121 17 / 50%)`,
+        testShadow:'0px 0px 32px 1px rgba(199,199,199,1)',
+        amazonInput:'0px 0px 3px 2px rgb(228 121 17 / 50%)',
 
       },
     },
