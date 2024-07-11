@@ -117,7 +117,7 @@ const Registration = () => {
   };
 
   return (
-    <div className='w-full'>
+    <div className='w-full pt-7'>
       <div className='w-full bg-gray-100 pb-10'>
         <form className='w-[370px] mx-auto flex flex-col items-center'>
           <img className='w-32' src={darklogo} alt='darklogo'></img>
